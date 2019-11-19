@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="jquery-1.12.3.min.js"></script>
+
+ <script type="text/javascript"> 
+ 
+ $( document ).ready(function() 
+ {
+	
+   var anguloDEG2=0;
+	
+   var b= function()
+   {
+	 var flor = $("#flor");
+	 var centroflor = $("#centroflor");
+	 var cX=200;
+	 var cY=200;
+	
+	 if(anguloDEG2>=360){anguloDEG2=0;}
+		anguloDEG2+=4;
+    var anguloRAD= (anguloDEG2*Math.PI)/180;
+
+	var dx = cX + (50*Math.cos(anguloRAD));
+	var dy = cY + (100*Math.sin(anguloRAD));	 
+	   
+	flor.attr('transform','rotate('+dy+',0,0)');
+	
+	r=Math.floor((Math.random() * 255) + 1);
+	b=Math.floor((Math.random() * 255) + 1);
+	
+	centroflor.attr('fill','rgb('+r+','+dx+','+b+')');
+	//console.log(dx);
+	   
+   };
+   
+   var cambiocolor = function()
+   {
+		rojo=Math.floor((Math.random() * 255) + 1);
+		verde=Math.floor((Math.random() * 255) + 1);
+		azul=Math.floor((Math.random() * 255) + 1);
+		
+		var techo = $("#techo");
+		techo.attr('fill','rgb('+rojo+','+verde+','+azul+')');
+   };
+	
+	setInterval(b, 500);
+	
+	setInterval(cambiocolor, 100);
+		
+});
+	
+</script>
+  
+</head> 
+
+
+<body>
+
+<h1>SOLUCION DE LA PRACTICA</h1>
+
+<svg viewBox="0 0 800 600" width="800px" height="600px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ 
+ <!-- cabeza -->
+ <g fill="yellow" stroke="gray" stroke-width="5">
+   <circle cx="400" cy="100" r="50"/>
+ </g>
+ 
+ <!-- ojos -->
+ <g fill="black" stroke="blue" stroke-width="5">
+   <circle cx="380" cy="80" r="5"/>
+   <circle cx="420" cy="80" r="5"/>
+ </g>
+ 
+ <!-- boca -->
+ <g transform="translate(375 115)" fill="none" stroke="red" stroke-width="5">
+    <path d="M0,0 C0,10 50,10 50,0" />
+ </g>
+ 
+ <!-- cuerpo -->
+ <g stroke="gray" stroke-width="5">
+    <line x1="400" y1="150" x2="400" y2="250"/>
+	<line x1="400" y1="249" x2="450" y2="350"/>
+	<line x1="400" y1="249" x2="350" y2="350"/>
+	
+	<line x1="400" y1="200" x2="340" y2="220"/>
+	<line x1="400" y1="200" x2="460" y2="220"/>
+ </g>
+ 
+ <!-- sombrero -->
+  <g transform="translate(355 10)" stroke="green" stroke-width="3" fill="orange">
+  <polyline points="0,50 0,40 30,40 30,20 60,20 60,40 90,40 90,50 0,50 " />
+ </g>
+ 
+ 
+ <!-- mensaje -->
+ <g fill="pink" stroke="gray" stroke-width="5">
+  <rect x="480" y="15" width="300" height="80" rx="20" ry="30"/>
+  <line x1="480" y1="50" x2="447" y2="120"/>
+  <line x1="490" y1="90" x2="447" y2="120"/>
+ </g>
+ <text x="500" y="50" fill="blue" font-size="20">
+     HOLA !!  CURSO 
+        <tspan dx="-150" dy="20" font-weight="bold" fill="red" >
+          LENGUAJES DE MARCADO 
+        </tspan>
+ </text>
+ 
+<!-- flor --> 
+<g transform="translate(600 200)" >
+	<g stroke="green" stroke-width="7">
+		<line x1="0" y1="0" x2="0" y2="150"/>
+	</g>
+	
+	<g transform="translate(0) rotate(0 0 0)"  id="flor" >
+		<circle id="centroflor" cx="0" cy="0" r="10" stroke="black" stroke-width="3" fill="blue" />
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange" /> 
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(45 0 0)" />
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(90 0 0)" />
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(135 0 0)" />
+		<!--<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(135 0 0)" />-->
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(180 0 0)" />
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(225 0 0)" />
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(270 0 0)" />
+		<ellipse cx="40" cy="0" rx="26" ry="10" stroke="red" stroke-width="3" fill="orange"  transform="translate(0) rotate(315 0 0)" />
+	</g>
+</g>
+	
+	
+	
+<!-- HOUSE -->
+<g transform="translate(90 190)" >
+   
+   
+	<rect width="150" height="160" style="fill:rgb(0,160,255);stroke-width:3;stroke:rgb(0,0,0)" />
+	
+	<g id="techo">
+	<polygon points="-20,0 , 75,-75 170,0 " style="stroke-width:3;stroke:rgb(0,0,0)" />
+	</g>
+	
+	
+	<g transform="translate(50 50)" >
+	   <rect width="20" height="20" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,0)" />
+	</g>
+	<g transform="translate(80 50)" >
+	   <rect width="20" height="20" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,0)" />
+	</g>
+	
+	<g transform="translate(50 20)" >
+	   <rect width="20" height="20" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,0)" />
+	</g>
+	<g transform="translate(80 20)" >
+	   <rect width="20" height="20" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,0)" />
+	</g>
+	
+	<g transform="translate(50 110)" >
+	   <rect width="50" height="50" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,0)" />
+	</g>
+	
+	 <circle cx="60" cy="135" r="5" stroke="black" stroke-width="3" fill="red" />
+ </g>
+ 
+ 
+	 
+	
+ 
+
+ </svg>
+ 
+ 
+ 
+</body>
+</html>
